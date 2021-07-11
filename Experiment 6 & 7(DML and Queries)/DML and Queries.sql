@@ -81,6 +81,12 @@ SELECT P.P_id FROM Passenger P WHERE P.P_id = ANY (SELECT T.P_id FROM Ticket T) 
 SELECT P.P_id FROM Passenger P WHERE P.P_id <> ALL (SELECT T.P_id FROM Ticket T) ;
 SELECT ALL P.P_name FROM Passenger P WHERE P.Gender = 'Male';
 SELECT P.P_id FROM Passenger P WHERE EXISTS(SELECT P.P_id FROM Passenger P);
-CREATE TABLE Reservation(P_id INT , noofseats INT , bus_no VARCHAR(20) , T_id INT);
-INSERT INTO Reservation VALUES (1276 , 2 , 'TS121',1211);
-INSERT INTO Reservation VALUES (1276 , 2 , 'TS121',1211);
+Create View PassView As Select * from Passenger;
+Select P_id,P_name from PassView where P_destination = 'Banglore'; 
+Create View TicView As Select T_id from Ticket;
+select * from TicView;
+Create View CanView As Select * from Cancellation;
+SELECT * FROM CanView;
+CREATE View BusView AS Select * From Bus;
+Update BusView set bus_no='TS123' where Destination = 'Hyderabad';
+select * From BusView;
