@@ -1,0 +1,14 @@
+CREATE TABLE Employee(ename VARCHAR(20) , eid INT , sal INT );
+INSERT INTO Employee VALUES('priya',1264,20000);
+INSERT INTO Employee VALUES('teju',1278,50000);
+INSERT INTO Employee VALUES('jyo',1267,15000);
+INSERT INTO Employee VALUES('soni',1289,26000);
+
+delimiter //
+
+CREATE PROCEDURE myproc()
+
+BEGIN
+SELECT * FROM Employee WHERE ename LIKE 's%';
+END;
+Call myproc();

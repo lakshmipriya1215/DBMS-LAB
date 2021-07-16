@@ -1,0 +1,15 @@
+CREATE TABLE employee(ename VARCHAR(20) , eid INT , sal INT );
+INSERT INTO employee VALUES('priya',1264,20000);
+INSERT INTO employee VALUES('teju',1278,50000);
+INSERT INTO employee VALUES('jyo',1267,15000);
+INSERT INTO employee VALUES('soni',1289,26000);
+
+
+delimiter //
+
+CREATE PROCEDURE myinputproc(IN salary REAL)
+
+BEGIN
+SELECT * FROM employee WHERE sal < salary;
+END;
+Call myinputproc(30000);
